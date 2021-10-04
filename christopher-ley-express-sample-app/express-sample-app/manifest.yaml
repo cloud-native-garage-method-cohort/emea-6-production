@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 781ca0e5dd0572cc3c043c7b0d06df8c2d05707e
+    app.openshift.io/vcs-ref: 8293363076fe520b5b4af827174c960165b7a5df
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/christopher-ley-express-app
   labels:
     app: express-sample-app
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 781ca0e5dd0572cc3c043c7b0d06df8c2d05707e
+    app.openshift.io/vcs-ref: 8293363076fe520b5b4af827174c960165b7a5df
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/christopher-ley-express-app
   labels:
     app: express-sample-app
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 781ca0e5dd0572cc3c043c7b0d06df8c2d05707e
+        app.openshift.io/vcs-ref: 8293363076fe520b5b4af827174c960165b7a5df
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/christopher-ley-express-app
       labels:
         app: express-sample-app
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/chrisley7506/express-sample-app:781ca0e5dd0572cc3c043c7b0d06df8c2d05707e
+        image: quay.io/chrisley7506/express-sample-app:8293363076fe520b5b4af827174c960165b7a5df
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 781ca0e5dd0572cc3c043c7b0d06df8c2d05707e
+    app.openshift.io/vcs-ref: 8293363076fe520b5b4af827174c960165b7a5df
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/christopher-ley-express-app
   labels:
     app: express-sample-app
