@@ -4,7 +4,7 @@ metadata:
   annotations:
     app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: c8db70dc96180ab7925935f9e4275ae1dfeed14a
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app
   labels:
     app: nextjs-app
     app.kubernetes.io/instance: nextjs-app
@@ -29,7 +29,7 @@ metadata:
   annotations:
     app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: c8db70dc96180ab7925935f9e4275ae1dfeed14a
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app
   labels:
     app: nextjs-app
     app.kubernetes.io/instance: nextjs-app
@@ -49,7 +49,7 @@ spec:
       annotations:
         app.openshift.io/runtime: js
         app.openshift.io/vcs-ref: c8db70dc96180ab7925935f9e4275ae1dfeed14a
-        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app
       labels:
         app: nextjs-app
         app.kubernetes.io/instance: nextjs-app
@@ -101,7 +101,7 @@ metadata:
   annotations:
     app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: c8db70dc96180ab7925935f9e4275ae1dfeed14a
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app
   labels:
     app: nextjs-app
     app.kubernetes.io/instance: nextjs-app
