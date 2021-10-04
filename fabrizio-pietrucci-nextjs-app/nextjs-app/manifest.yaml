@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c77a9bbb34bf210cf1bd3f6e5388d5b1874bcb68
+    app.openshift.io/vcs-ref: 1fd796483a59c25b5e27ebaeca7c2e3f8290c057
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
   labels:
     app: nextjs-app
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c77a9bbb34bf210cf1bd3f6e5388d5b1874bcb68
+    app.openshift.io/vcs-ref: 1fd796483a59c25b5e27ebaeca7c2e3f8290c057
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
   labels:
     app: nextjs-app
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: c77a9bbb34bf210cf1bd3f6e5388d5b1874bcb68
+        app.openshift.io/vcs-ref: 1fd796483a59c25b5e27ebaeca7c2e3f8290c057
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
       labels:
         app: nextjs-app
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/fabrizio_pietrucci/nextjs-app:c77a9bbb34bf210cf1bd3f6e5388d5b1874bcb68
+        image: quay.io/fabrizio_pietrucci/nextjs-app:1fd796483a59c25b5e27ebaeca7c2e3f8290c057
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c77a9bbb34bf210cf1bd3f6e5388d5b1874bcb68
+    app.openshift.io/vcs-ref: 1fd796483a59c25b5e27ebaeca7c2e3f8290c057
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/fabrizio-pietrucci-nextjs-app.git
   labels:
     app: nextjs-app
