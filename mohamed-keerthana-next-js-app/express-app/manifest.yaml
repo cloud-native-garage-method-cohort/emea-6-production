@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
+  labels:
+    app: express-app
+    app.kubernetes.io/instance: express-app
+    app.kubernetes.io/name: express-app
+  name: next-js-app
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: express-app
+    app.kubernetes.io/instance: express-app
+    app.kubernetes.io/name: express-app
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
+  labels:
+    app: express-app
+    app.kubernetes.io/instance: express-app
+    app.kubernetes.io/name: express-app
+  name: next-js-app
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: express-app
+      app.kubernetes.io/instance: express-app
+      app.kubernetes.io/name: express-app
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
+      labels:
+        app: express-app
+        app.kubernetes.io/instance: express-app
+        app.kubernetes.io/name: express-app
+    spec:
+      containers:
+      - env:
+        - name: INGRESS_HOST
+        - name: PROTOCOLS
+        - name: LOG_LEVEL
+          value: debug
+        image: quay.io/mohameddounnani94/next-js-app:646d4f680715befc7a227a65072cbee3cf344ef3
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: express-sample-app
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
+  labels:
+    app: express-app
+    app.kubernetes.io/instance: express-app
+    app.kubernetes.io/name: express-app
+  name: next-js-app
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: next-js-app
+    weight: 100
+  wildcardPolicy: None
