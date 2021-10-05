@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: e7089c5a98bc995d866b5acb30c32f3467a1dad0
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-serena-tim-e2e
+  labels:
+    app: next-app
+    app.kubernetes.io/instance: next-app
+    app.kubernetes.io/name: next-app
+  name: next-app
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: next-app
+    app.kubernetes.io/instance: next-app
+    app.kubernetes.io/name: next-app
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: e7089c5a98bc995d866b5acb30c32f3467a1dad0
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-serena-tim-e2e
+  labels:
+    app: next-app
+    app.kubernetes.io/instance: next-app
+    app.kubernetes.io/name: next-app
+  name: next-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: next-app
+      app.kubernetes.io/instance: next-app
+      app.kubernetes.io/name: next-app
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: e7089c5a98bc995d866b5acb30c32f3467a1dad0
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-serena-tim-e2e
+      labels:
+        app: next-app
+        app.kubernetes.io/instance: next-app
+        app.kubernetes.io/name: next-app
+    spec:
+      containers:
+      - image: quay.io/tim_walter_ibm/emea-06-next:e7089c5a98bc995d866b5acb30c32f3467a1dad0
+        name: next-app
+        ports:
+        - containerPort: 3000
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: e7089c5a98bc995d866b5acb30c32f3467a1dad0
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-serena-tim-e2e
+  labels:
+    app: next-app
+    app.kubernetes.io/instance: next-app
+    app.kubernetes.io/name: next-app
+  name: next-app
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: next-app
+    weight: 100
+  wildcardPolicy: None
