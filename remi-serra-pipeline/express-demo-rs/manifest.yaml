@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a9f5b788ba090af5e2b1bd92cd6b462dd6bea159
+    app.openshift.io/vcs-ref: 42adc3a90a5c1e46eddc4d645272d5e3b389fc82
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/express-demo-rs-ds
   labels:
     app: express-demo-rs
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a9f5b788ba090af5e2b1bd92cd6b462dd6bea159
+    app.openshift.io/vcs-ref: 42adc3a90a5c1e46eddc4d645272d5e3b389fc82
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/express-demo-rs-ds
   labels:
     app: express-demo-rs
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: a9f5b788ba090af5e2b1bd92cd6b462dd6bea159
+        app.openshift.io/vcs-ref: 42adc3a90a5c1e46eddc4d645272d5e3b389fc82
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/express-demo-rs-ds
       labels:
         app: express-demo-rs
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/remiserra/express-demo-rs-ds:a9f5b788ba090af5e2b1bd92cd6b462dd6bea159
+        image: quay.io/remiserra/express-demo-rs-ds:42adc3a90a5c1e46eddc4d645272d5e3b389fc82
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a9f5b788ba090af5e2b1bd92cd6b462dd6bea159
+    app.openshift.io/vcs-ref: 42adc3a90a5c1e46eddc4d645272d5e3b389fc82
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/express-demo-rs-ds
   labels:
     app: express-demo-rs
