@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-ref: 29700b62e02c283a170ae4e232814ba977868433
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
   labels:
     app: express-app
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-ref: 29700b62e02c283a170ae4e232814ba977868433
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
   labels:
     app: express-app
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+        app.openshift.io/vcs-ref: 29700b62e02c283a170ae4e232814ba977868433
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
       labels:
         app: express-app
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/mohameddounnani94/next-js-app:646d4f680715befc7a227a65072cbee3cf344ef3
+        image: quay.io/mohameddounnani94/next-js-app:29700b62e02c283a170ae4e232814ba977868433
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 646d4f680715befc7a227a65072cbee3cf344ef3
+    app.openshift.io/vcs-ref: 29700b62e02c283a170ae4e232814ba977868433
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/mohamed-keerthana-next-js-app
   labels:
     app: express-app
