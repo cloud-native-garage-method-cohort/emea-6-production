@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 497bdcbbadd9f0a25625be7f2b0aef7c87602e9b
+    app.openshift.io/vcs-ref: 32dff1d300e22784e0178b34bb5e96269a6f33a2
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/dsanchezseco-e2e-tekton
   labels:
     app: tekton-e2e
@@ -13,7 +13,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 3000
+    port: 80
     protocol: TCP
     targetPort: 3000
   selector:
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 497bdcbbadd9f0a25625be7f2b0aef7c87602e9b
+    app.openshift.io/vcs-ref: 32dff1d300e22784e0178b34bb5e96269a6f33a2
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/dsanchezseco-e2e-tekton
   labels:
     app: tekton-e2e
@@ -46,26 +46,26 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 497bdcbbadd9f0a25625be7f2b0aef7c87602e9b
+        app.openshift.io/vcs-ref: 32dff1d300e22784e0178b34bb5e96269a6f33a2
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/dsanchezseco-e2e-tekton
-      app: tekton-e2e
       labels:
         app: tekton-e2e
         app.kubernetes.io/instance: tekton-e2e
         app.kubernetes.io/name: tekton-e2e
     spec:
       containers:
-      - image: quay.io/dsanchezseco-ibm/tekton-e2e:497bdcbbadd9f0a25625be7f2b0aef7c87602e9b
+      - image: quay.io/dsanchezseco-ibm/tekton-e2e:32dff1d300e22784e0178b34bb5e96269a6f33a2
         name: tekton-e2e
         ports:
         - containerPort: 3000
+          protocol: TCP
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 497bdcbbadd9f0a25625be7f2b0aef7c87602e9b
+    app.openshift.io/vcs-ref: 32dff1d300e22784e0178b34bb5e96269a6f33a2
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/dsanchezseco-e2e-tekton
   labels:
     app: tekton-e2e
@@ -73,10 +73,6 @@ metadata:
     app.kubernetes.io/name: tekton-e2e
   name: tekton-e2e-route
 spec:
-  port:
-    targetPort: 3000
-  tls:
-    termination: edge
   to:
     kind: Service
     name: tekton-e2e
