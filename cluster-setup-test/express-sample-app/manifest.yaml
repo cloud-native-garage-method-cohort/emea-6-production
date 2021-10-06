@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 98eb19f697a7506ce577e71a949b4c9c5e296544
+    app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
   labels:
     app: express-sample-app
@@ -28,13 +28,12 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 98eb19f697a7506ce577e71a949b4c9c5e296544
+    app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
   labels:
     app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
     app.kubernetes.io/name: express-sample-app
-    app.openshift.io/runtime: js
   name: express-sample-app
 spec:
   progressDeadlineSeconds: 600
@@ -49,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 98eb19f697a7506ce577e71a949b4c9c5e296544
+        app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
         app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
       labels:
         app: express-sample-app
@@ -62,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/upslopeio/express-sample-app:98eb19f697a7506ce577e71a949b4c9c5e296544
+        image: quay.io/upslopeio/express-sample-app:1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -101,10 +100,8 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 98eb19f697a7506ce577e71a949b4c9c5e296544
+    app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
-    argocd.argoproj.io/sync-options: Validate=false
-    openshift.io/host.generated: "true"
   labels:
     app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
