@@ -2,11 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
   labels:
-    app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
     app.kubernetes.io/name: express-sample-app
   name: express-sample-app
@@ -17,7 +15,6 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
     app.kubernetes.io/name: express-sample-app
   sessionAffinity: None
@@ -27,11 +24,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
   labels:
-    app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
     app.kubernetes.io/name: express-sample-app
   name: express-sample-app
@@ -41,17 +36,14 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: express-sample-app
       app.kubernetes.io/instance: express-sample-app
       app.kubernetes.io/name: express-sample-app
   template:
     metadata:
       annotations:
-        app.openshift.io/runtime: js
         app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
         app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
       labels:
-        app: express-sample-app
         app.kubernetes.io/instance: express-sample-app
         app.kubernetes.io/name: express-sample-app
     spec:
@@ -99,11 +91,9 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
-    app.openshift.io/runtime: js
     app.openshift.io/vcs-ref: 1fd0eb348965768e45bbcc2fcbacd14a78c0ef3d
     app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
   labels:
-    app: express-sample-app
     app.kubernetes.io/instance: express-sample-app
     app.kubernetes.io/name: express-sample-app
   name: express-sample-app
