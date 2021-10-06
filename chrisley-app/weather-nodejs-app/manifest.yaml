@@ -1,0 +1,115 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 70b92d25c305e48c4f715c3edb8b5364ddca9caa
+    app.openshift.io/vcs-uri: https://github.com/chrisley75/weather-nodejs-app
+  labels:
+    app: weather-nodejs-app
+    app.kubernetes.io/instance: weather-nodejs-app
+    app.kubernetes.io/name: weather-nodejs-app
+  name: weather-nodejs-app
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: weather-nodejs-app
+    app.kubernetes.io/instance: weather-nodejs-app
+    app.kubernetes.io/name: weather-nodejs-app
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 70b92d25c305e48c4f715c3edb8b5364ddca9caa
+    app.openshift.io/vcs-uri: https://github.com/chrisley75/weather-nodejs-app
+  labels:
+    app: weather-nodejs-app
+    app.kubernetes.io/instance: weather-nodejs-app
+    app.kubernetes.io/name: weather-nodejs-app
+  name: weather-nodejs-app
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: weather-nodejs-app
+      app.kubernetes.io/instance: weather-nodejs-app
+      app.kubernetes.io/name: weather-nodejs-app
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: 70b92d25c305e48c4f715c3edb8b5364ddca9caa
+        app.openshift.io/vcs-uri: https://github.com/chrisley75/weather-nodejs-app
+      labels:
+        app: weather-nodejs-app
+        app.kubernetes.io/instance: weather-nodejs-app
+        app.kubernetes.io/name: weather-nodejs-app
+    spec:
+      containers:
+      - env:
+        - name: INGRESS_HOST
+        - name: PROTOCOLS
+        - name: LOG_LEVEL
+          value: debug
+        image: quay.io/chrisley7506/weather-nodejs-app:70b92d25c305e48c4f715c3edb8b5364ddca9caa
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: nextjs-app
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 70b92d25c305e48c4f715c3edb8b5364ddca9caa
+    app.openshift.io/vcs-uri: https://github.com/chrisley75/weather-nodejs-app
+  labels:
+    app: weather-nodejs-app
+    app.kubernetes.io/instance: weather-nodejs-app
+    app.kubernetes.io/name: weather-nodejs-app
+  name: weather-node-app
+spec:
+  to:
+    kind: Service
+    name: weather-node-app
+    weight: 100
+  wildcardPolicy: None
