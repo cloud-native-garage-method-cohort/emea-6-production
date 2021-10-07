@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 7332dcabd411f8d847feb6e35786093e7e0c68c9
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
+  labels:
+    app: weather-app-backend
+    app.kubernetes.io/instance: weather-app-backend
+    app.kubernetes.io/name: weather-app-backend
+  name: backend-app
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: weather-app-backend
+    app.kubernetes.io/instance: weather-app-backend
+    app.kubernetes.io/name: weather-app-backend
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 7332dcabd411f8d847feb6e35786093e7e0c68c9
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
+  labels:
+    app: weather-app-backend
+    app.kubernetes.io/instance: weather-app-backend
+    app.kubernetes.io/name: weather-app-backend
+  name: backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-app-backend
+      app.kubernetes.io/instance: weather-app-backend
+      app.kubernetes.io/name: weather-app-backend
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: 7332dcabd411f8d847feb6e35786093e7e0c68c9
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
+      labels:
+        app: weather-app-backend
+        app.kubernetes.io/instance: weather-app-backend
+        app.kubernetes.io/name: weather-app-backend
+    spec:
+      containers:
+      - image: quay.io/tim_walter_ibm/emea-06-squad1-weather-backend:7332dcabd411f8d847feb6e35786093e7e0c68c9
+        name: backend-app
+        ports:
+        - containerPort: 3000
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 7332dcabd411f8d847feb6e35786093e7e0c68c9
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
+  labels:
+    app: weather-app-backend
+    app.kubernetes.io/instance: weather-app-backend
+    app.kubernetes.io/name: weather-app-backend
+  name: backend-app
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: backend-app
+    weight: 100
+  wildcardPolicy: None
