@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c0db0af41e042b646c0590774fa93d6684496949
+    app.openshift.io/vcs-ref: 4e05ccb6eff22f0f1eadc35c14bb2fd9dc6dbf5d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
   labels:
     app: weather-app-backend
@@ -26,7 +26,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c0db0af41e042b646c0590774fa93d6684496949
+    app.openshift.io/vcs-ref: 4e05ccb6eff22f0f1eadc35c14bb2fd9dc6dbf5d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
   labels:
     app: weather-app-backend
@@ -44,7 +44,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: c0db0af41e042b646c0590774fa93d6684496949
+        app.openshift.io/vcs-ref: 4e05ccb6eff22f0f1eadc35c14bb2fd9dc6dbf5d
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
       labels:
         app: weather-app-backend
@@ -58,7 +58,7 @@ spec:
             secretKeyRef:
               key: owm
               name: api-keys
-        image: quay.io/tim_walter_ibm/emea-06-squad1-weather-backend:c0db0af41e042b646c0590774fa93d6684496949
+        image: quay.io/tim_walter_ibm/emea-06-squad1-weather-backend:4e05ccb6eff22f0f1eadc35c14bb2fd9dc6dbf5d
         name: backend-app
         ports:
         - containerPort: 3000
@@ -68,7 +68,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c0db0af41e042b646c0590774fa93d6684496949
+    app.openshift.io/vcs-ref: 4e05ccb6eff22f0f1eadc35c14bb2fd9dc6dbf5d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-backend
   labels:
     app: weather-app-backend
