@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c9d7dddad1c501bed5e49c071e60200fc4c67ac3
+    app.openshift.io/vcs-ref: 633229c2287a28ff11a184209d9da1f41af0098a
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-client
   labels:
     app: squad2-basp-project-client
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c9d7dddad1c501bed5e49c071e60200fc4c67ac3
+    app.openshift.io/vcs-ref: 633229c2287a28ff11a184209d9da1f41af0098a
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-client
   labels:
     app: squad2-basp-project-client
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: c9d7dddad1c501bed5e49c071e60200fc4c67ac3
+        app.openshift.io/vcs-ref: 633229c2287a28ff11a184209d9da1f41af0098a
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-client
       labels:
         app: squad2-basp-project-client
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/giusan_ibm/squad2-basp-project-client:c9d7dddad1c501bed5e49c071e60200fc4c67ac3
+        image: quay.io/giusan_ibm/squad2-basp-project-client:633229c2287a28ff11a184209d9da1f41af0098a
         imagePullPolicy: IfNotPresent
         name: express-buildah-app
         ports:
@@ -82,7 +82,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: c9d7dddad1c501bed5e49c071e60200fc4c67ac3
+    app.openshift.io/vcs-ref: 633229c2287a28ff11a184209d9da1f41af0098a
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-client
   labels:
     app: squad2-basp-project-client
