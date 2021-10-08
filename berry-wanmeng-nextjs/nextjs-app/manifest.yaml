@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 74b90006329bc536b7c142e03f39993564a2ba20
+    app.openshift.io/vcs-ref: e4eca253925d75b934bc5de92f38f51d6a32cf04
     app.openshift.io/vcs-uri: https://github.com/berringo/berry-wanmeng-app
   labels:
     app: nextjs-app
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 74b90006329bc536b7c142e03f39993564a2ba20
+    app.openshift.io/vcs-ref: e4eca253925d75b934bc5de92f38f51d6a32cf04
     app.openshift.io/vcs-uri: https://github.com/berringo/berry-wanmeng-app
   labels:
     app: nextjs-app
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 74b90006329bc536b7c142e03f39993564a2ba20
+        app.openshift.io/vcs-ref: e4eca253925d75b934bc5de92f38f51d6a32cf04
         app.openshift.io/vcs-uri: https://github.com/berringo/berry-wanmeng-app
       labels:
         app: nextjs-app
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/berringo/berry-wanmeng-app:74b90006329bc536b7c142e03f39993564a2ba20
+        image: quay.io/berringo/berry-wanmeng-app:e4eca253925d75b934bc5de92f38f51d6a32cf04
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 74b90006329bc536b7c142e03f39993564a2ba20
+    app.openshift.io/vcs-ref: e4eca253925d75b934bc5de92f38f51d6a32cf04
     app.openshift.io/vcs-uri: https://github.com/berringo/berry-wanmeng-app
   labels:
     app: nextjs-app
