@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 4c6379c8c42224b4d8a06261c76ba3b9de9bce3a
+    app.openshift.io/vcs-ref: 8c98b6dc2ae0e9555cea53333473374f27b3037d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-frontend
   labels:
     app: weather-app-frontend
@@ -26,7 +26,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 4c6379c8c42224b4d8a06261c76ba3b9de9bce3a
+    app.openshift.io/vcs-ref: 8c98b6dc2ae0e9555cea53333473374f27b3037d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-frontend
   labels:
     app: weather-app-frontend
@@ -44,7 +44,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 4c6379c8c42224b4d8a06261c76ba3b9de9bce3a
+        app.openshift.io/vcs-ref: 8c98b6dc2ae0e9555cea53333473374f27b3037d
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-frontend
       labels:
         app: weather-app-frontend
@@ -52,7 +52,7 @@ spec:
         app.kubernetes.io/name: weather-app-frontend
     spec:
       containers:
-      - image: quay.io/tim_walter_ibm/emea-06-squad1-weather-frontend:4c6379c8c42224b4d8a06261c76ba3b9de9bce3a
+      - image: quay.io/tim_walter_ibm/emea-06-squad1-weather-frontend:8c98b6dc2ae0e9555cea53333473374f27b3037d
         name: frontend-app
         ports:
         - containerPort: 8080
@@ -62,7 +62,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 4c6379c8c42224b4d8a06261c76ba3b9de9bce3a
+    app.openshift.io/vcs-ref: 8c98b6dc2ae0e9555cea53333473374f27b3037d
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/emea-06-squad1-weather-app-frontend
   labels:
     app: weather-app-frontend
