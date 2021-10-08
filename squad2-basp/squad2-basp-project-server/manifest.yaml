@@ -1,0 +1,99 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+  labels:
+    app: squad2-basp-project-server
+    app.kubernetes.io/instance: squad2-basp-project-server
+    app.kubernetes.io/name: squad2-basp-project-server
+  name: basp-server
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: squad2-basp-project-server
+    app.kubernetes.io/instance: squad2-basp-project-server
+    app.kubernetes.io/name: squad2-basp-project-server
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+  labels:
+    app: squad2-basp-project-server
+    app.kubernetes.io/instance: squad2-basp-project-server
+    app.kubernetes.io/name: squad2-basp-project-server
+  name: basp-server
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: squad2-basp-project-server
+      app.kubernetes.io/instance: squad2-basp-project-server
+      app.kubernetes.io/name: squad2-basp-project-server
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+      labels:
+        app: squad2-basp-project-server
+        app.kubernetes.io/instance: squad2-basp-project-server
+        app.kubernetes.io/name: squad2-basp-project-server
+    spec:
+      containers:
+      - env:
+        - name: INGRESS_HOST
+        - name: PROTOCOLS
+        - name: LOG_LEVEL
+          value: debug
+        image: quay.io/giusan_ibm/squad2-basp-project-server:2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+        imagePullPolicy: IfNotPresent
+        name: express-buildah-app
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+  labels:
+    app: squad2-basp-project-server
+    app.kubernetes.io/instance: squad2-basp-project-server
+    app.kubernetes.io/name: squad2-basp-project-server
+  name: basp-server
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: basp-server
+    weight: 100
+  wildcardPolicy: None
