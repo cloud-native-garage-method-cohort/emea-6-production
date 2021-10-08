@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 16263db1c8b9fc1caeeb5f376627b3c6cd0d49af
+    app.openshift.io/vcs-ref: 988f8c029324684767de3507c71f430c741fe887
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
   labels:
     app: squad4-chat-front
@@ -28,7 +28,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 16263db1c8b9fc1caeeb5f376627b3c6cd0d49af
+    app.openshift.io/vcs-ref: 988f8c029324684767de3507c71f430c741fe887
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
   labels:
     app: squad4-chat-front
@@ -48,7 +48,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 16263db1c8b9fc1caeeb5f376627b3c6cd0d49af
+        app.openshift.io/vcs-ref: 988f8c029324684767de3507c71f430c741fe887
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
       labels:
         app: squad4-chat-front
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/remiserra/squad4-chat-front:16263db1c8b9fc1caeeb5f376627b3c6cd0d49af
+        image: quay.io/remiserra/squad4-chat-front:988f8c029324684767de3507c71f430c741fe887
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -100,7 +100,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 16263db1c8b9fc1caeeb5f376627b3c6cd0d49af
+    app.openshift.io/vcs-ref: 988f8c029324684767de3507c71f430c741fe887
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
   labels:
     app: squad4-chat-front
