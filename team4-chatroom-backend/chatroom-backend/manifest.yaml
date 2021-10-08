@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a745c9336b81d1371382770cc3db9afead901973
+    app.openshift.io/vcs-ref: c1fbe3ce63ea0df704d58be87c5652ee69957d32
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Backend
   labels:
     app: chatroom-backend
@@ -13,13 +13,13 @@ metadata:
 spec:
   ports:
   - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: ws
     port: 3000
     protocol: TCP
     targetPort: 3000
-  - name: ws
-    port: 3001
-    protocol: TCP
-    targetPort: 3001
   selector:
     app: chatroom-backend
     app.kubernetes.io/instance: chatroom-backend
@@ -32,7 +32,7 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a745c9336b81d1371382770cc3db9afead901973
+    app.openshift.io/vcs-ref: c1fbe3ce63ea0df704d58be87c5652ee69957d32
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Backend
   labels:
     app: chatroom-backend
@@ -52,7 +52,7 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: a745c9336b81d1371382770cc3db9afead901973
+        app.openshift.io/vcs-ref: c1fbe3ce63ea0df704d58be87c5652ee69957d32
         app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Backend
       labels:
         app: chatroom-backend
@@ -65,7 +65,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/fabrizio_pietrucci/team4-chatroom-backend:a745c9336b81d1371382770cc3db9afead901973
+        image: quay.io/fabrizio_pietrucci/team4-chatroom-backend:c1fbe3ce63ea0df704d58be87c5652ee69957d32
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
@@ -104,7 +104,7 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: a745c9336b81d1371382770cc3db9afead901973
+    app.openshift.io/vcs-ref: c1fbe3ce63ea0df704d58be87c5652ee69957d32
     app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Backend
   labels:
     app: chatroom-backend
