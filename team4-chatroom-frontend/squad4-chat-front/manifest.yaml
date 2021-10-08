@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: f44d42592deeac67b76e5e788994e801c76aa825
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
+  labels:
+    app: squad4-chat-front
+    app.kubernetes.io/instance: squad4-chat-front
+    app.kubernetes.io/name: squad4-chat-front
+  name: chatroom-frontend
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: squad4-chat-front
+    app.kubernetes.io/instance: squad4-chat-front
+    app.kubernetes.io/name: squad4-chat-front
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: f44d42592deeac67b76e5e788994e801c76aa825
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
+  labels:
+    app: squad4-chat-front
+    app.kubernetes.io/instance: squad4-chat-front
+    app.kubernetes.io/name: squad4-chat-front
+  name: chatroom-frontend
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: squad4-chat-front
+      app.kubernetes.io/instance: squad4-chat-front
+      app.kubernetes.io/name: squad4-chat-front
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/runtime: js
+        app.openshift.io/vcs-ref: f44d42592deeac67b76e5e788994e801c76aa825
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
+      labels:
+        app: squad4-chat-front
+        app.kubernetes.io/instance: squad4-chat-front
+        app.kubernetes.io/name: squad4-chat-front
+    spec:
+      containers:
+      - env:
+        - name: INGRESS_HOST
+        - name: PROTOCOLS
+        - name: LOG_LEVEL
+          value: debug
+        image: quay.io/remiserra/squad4-chat-front:f44d42592deeac67b76e5e788994e801c76aa825
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: chatroom-frontend
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/runtime: js
+    app.openshift.io/vcs-ref: f44d42592deeac67b76e5e788994e801c76aa825
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/Team4-Chat-Room-Frontend
+  labels:
+    app: squad4-chat-front
+    app.kubernetes.io/instance: squad4-chat-front
+    app.kubernetes.io/name: squad4-chat-front
+  name: chatroom-frontend
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: chatroom-frontend
+    weight: 100
+  wildcardPolicy: None
