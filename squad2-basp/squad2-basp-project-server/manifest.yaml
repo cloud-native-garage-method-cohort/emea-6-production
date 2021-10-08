@@ -3,8 +3,8 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+    app.openshift.io/vcs-ref: 822e01cb48fefd31afba5229bf0579576996764d
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server
   labels:
     app: squad2-basp-project-server
     app.kubernetes.io/instance: squad2-basp-project-server
@@ -28,8 +28,8 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+    app.openshift.io/vcs-ref: 822e01cb48fefd31afba5229bf0579576996764d
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server
   labels:
     app: squad2-basp-project-server
     app.kubernetes.io/instance: squad2-basp-project-server
@@ -48,8 +48,8 @@ spec:
     metadata:
       annotations:
         app.openshift.io/runtime: js
-        app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
-        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+        app.openshift.io/vcs-ref: 822e01cb48fefd31afba5229bf0579576996764d
+        app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server
       labels:
         app: squad2-basp-project-server
         app.kubernetes.io/instance: squad2-basp-project-server
@@ -61,7 +61,7 @@ spec:
         - name: PROTOCOLS
         - name: LOG_LEVEL
           value: debug
-        image: quay.io/giusan_ibm/squad2-basp-project-server:2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
+        image: quay.io/giusan_ibm/squad2-basp-project-server:822e01cb48fefd31afba5229bf0579576996764d
         imagePullPolicy: IfNotPresent
         name: express-buildah-app
         ports:
@@ -82,8 +82,8 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/runtime: js
-    app.openshift.io/vcs-ref: 2053f6e8d858f25b9b9e0de6540f3aa05d4dc478
-    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server.git
+    app.openshift.io/vcs-ref: 822e01cb48fefd31afba5229bf0579576996764d
+    app.openshift.io/vcs-uri: https://github.com/cloud-native-garage-method-cohort/squad2-basp-project-server
   labels:
     app: squad2-basp-project-server
     app.kubernetes.io/instance: squad2-basp-project-server
